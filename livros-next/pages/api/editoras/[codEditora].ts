@@ -1,10 +1,19 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { ControleEditora } from "../../../classes/controle/ControleEditora";
+import { NextApiRequest, NextApiResponse } from "next"
+import { controleEditora } from "."
 
-const controleEditora = new ControleEditora() 
-
-// eslint-disable-next-line import/no-anonymous-default-export
-export default  (requisicao: NextApiRequest, resposta: NextApiResponse) => {
-    const { codEditora } = requisicao.query;
-    resposta.status(200).json(controleEditora.getNomeEditora(Number(codEditora)));
-};
+export default (req: NextApiRequest, res: NextApiResponse) => { 
+    var cod = req.query.codEditora;
+    var nome = controleEditora.getNomeEditora(Number(cod));
+    
+    
+    res.status(200).json({nome});
+    
+}
+export const error = {
+    onError: ( req: NextApiRequest, res: NextApiResponse, err:any) => {
+      res.status(500).end(err.toString());
+    },
+    onNoMatch: (req: NextApiRequest, res: NextApiResponse) => {
+      res.status(405).send("Method Not Allowed");
+    },
+  };

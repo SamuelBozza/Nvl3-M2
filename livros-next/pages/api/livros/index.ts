@@ -1,31 +1,30 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { ControleLivro } from "../../../classes/controle/ControleLivros";
-import { Livro } from "../../../classes/modelo/Livro";
+import ControleLivro from "@/classes/controle/ControleLivros";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export const controleLivro = new ControleLivro() 
+export const controleLivro = new ControleLivro
 
-export default async function handle(requisicao: NextApiRequest, resposta: NextApiResponse) {
-  const requestMethod = requisicao.method;
+export default async(req: NextApiRequest, res: NextApiResponse) => { 
+    const {query} =req
+    var livros = controleLivro.obterLivros();
+    var livrosInclusos  = req.body.incluir;
 
+    req.body
 
-  if(requestMethod === 'POST'){
-    const novoLivro = new Livro(
-      livro.codigo,
-      livro.codEditora,
-      livro.titulo,
-      livro.resumo,
-      livro.autores
-    );
-    controleLivro.incluir(novoLivro);
-    resposta.status(200).json(controleLivro.obterLivros());
-  } 
-  else if(requestMethod === 'DELETE'){
-    controleLivro.excluir(Number(codigo));
-    resposta.status(200).json(controleLivro.obterLivros());
-  }
-  else {
-    resposta.status(200).json(controleLivro.obterLivros());
-  }
+    switch(req.method){
+        case "GET":
+            res.status(200).json(livros);
+            break;
+            
+        case "POST":
+            res.status(200).json(livrosInclusos);
+            break;
 
- 
-  }
+        default:
+            res.status(405).send("Method Not Allowed");
+            break;
+    }
+}
+export const error = {
+    onError: ( req: NextApiRequest, res: NextApiResponse, err:any) => {
+      res.status(500).end(err.toString());
+    }}

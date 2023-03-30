@@ -1,11 +1,8 @@
-import React from "react";
-
-export class Editora{
-    codEditora: Number;
-    nome: String;
-
-    constructor(nome: string, codEditora: number) {
-        this.nome = nome;
+export default class Editora{
+    codEditora : number;
+    nomeEditora : string;
+    constructor(codEditora:number, nomeEditora:string){
         this.codEditora = codEditora;
-      }
+        this.nomeEditora = nomeEditora;
+    }
 }
