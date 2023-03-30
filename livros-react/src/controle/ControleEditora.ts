@@ -1,35 +1,30 @@
-import { Editora } from "../modelo/Editora";
+import Editora from "../modelo/Editora";
 
-const editoras: Array<Editora> = [
+var editoras: Array<Editora> = [
   {
     codEditora: 1,
-    nome: "Editora 1",
+    editora: "Editra1",
   },
   {
     codEditora: 2,
-    nome: "Editora B",
+    editora: "Editora 2",
   },
   {
     codEditora: 3,
-    nome: "Editora C",
+    editora: "Editora 3",
   },
 ];
 
-class ControleEditora {
-  private editoras: Array<Editora>;
-
-  constructor() {
-    this.editoras = editoras;
+export default class ControleEditora {
+  editoras = editoras;
+  getNomeEditora(codigoEditora: number) {
+    let editora: Editora[] = this.editoras.filter((editora: Editora) => {
+      return editora.codEditora === codigoEditora;
+    });
+    return editora[0].editora;
   }
 
-  getEditoras(): Array<Editora> {
+  getEditoras() {
     return this.editoras;
   }
-
-  getNomeEditora(codEditora: number): string {
-    const editora = this.editoras.find((e) => e.codEditora === codEditora);
-    return editora ? editora.nome : "";
-  }
 }
-
-export default ControleEditora;

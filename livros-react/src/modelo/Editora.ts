@@ -1,10 +1,8 @@
-export class Editora {
+export default class Editora {
   codEditora: number;
-  nome: string;
-
-  constructor(codEditora: number, nome: string) {
+  editora: string;
+  constructor(codEditora: number, editora: string) {
     this.codEditora = codEditora;
-    this.nome = nome;
+    this.editora = editora;
   }
 }
-
