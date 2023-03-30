@@ -1,50 +1,49 @@
-import Livro from "../modelo/Livro"
+import Livro from "../modelo/Livro";
 
 var livros: Array<Livro> = [
   {
     codigo: 1,
     codEditora: 1,
-    titulo: 'Os Miseráveis',
-    resumo: 'A história sobre Jean Valjean, que da pobresa foi repentinamente inserido na alta sociedade',
-    autores: ['Vitor Hugo', 'Maria']
+    titulo: "Titulo 1",
+    resumo: "Resumo 1",
+    autores: ["Autor 1", "Autor 2"],
   },
   {
     codigo: 2,
     codEditora: 2,
-    titulo: 'Crime e Castigo',
-    resumo: 'Até que ponto o crime compensa? Essa história conta sobre Raskólnikov, que queria justificar seus crimes levando em consideração os grandes "criminosos" mundiais tidos como herois.',
-    autores: ['Fiódor Dostoiévsk', 'Joana']
+    titulo: "Titulo 2",
+    resumo: "Resumo 2",
+    autores: ["Autor 1"],
   },
   {
     codigo: 3,
     codEditora: 3,
-    titulo: 'Guerra e Paz',
-    resumo: 'O romance de Tolstói versa sobre o caráter fatídico dos conflitos sangrentos nas relações humanas. Explora as origens das guerras napoleônicas no Oriente (em 1805 e 1812) e seus resultados',
-    autores: ['Tolstói', 'Juremar']
+    titulo: "Titulo 3",
+    resumo: "Resumo 3",
+    autores: ["Autor 1", "Autor 2"],
   },
-]
+];
 
 export default class ControleLivro {
-  livros = livros
+  livros = livros;
 
   obterLivros() {
-    return livros
+    return livros;
   }
   incluir(livro: Livro) {
     try {
-      var codigo: number = (this.livros.length - 1);
+      var codigo: number = this.livros.length - 1;
       livro.codigo = this.livros[codigo].codigo + 1;
       this.livros.push(livro);
-    }
-    catch {
+    } catch {
       livro.codigo = 1;
       this.livros.push(livro);
     }
   }
   excluir(num: Number) {
     var livroEncontrado = this.livros.findIndex((livro: Livro) => {
-      return num === livro.codigo
+      return num === livro.codigo;
     });
-    this.livros.splice(livroEncontrado, 1)
+    this.livros.splice(livroEncontrado, 1);
   }
 }
