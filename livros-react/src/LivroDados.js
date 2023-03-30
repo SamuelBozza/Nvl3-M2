@@ -44,7 +44,7 @@ function LivroDados(props) {
 
   return (
     <main>
-      <form className="form-control" onSubmit={incluir}>
+      <form className="px-4" onSubmit={incluir}>
         <h1>Dados do Livro</h1>
         <div className="form-group">
           <label htmlFor="titulo">Título</label>

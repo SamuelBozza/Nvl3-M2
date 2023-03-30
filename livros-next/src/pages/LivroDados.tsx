@@ -53,12 +53,9 @@ export default function LivroDados() {
       <Head>
         <title>Novo Livro</title>
       </Head>
-
       <Menu />
-
       <main className={styles.main}>
-        <h1 className={styles.title}>Novo Livro</h1>
-
+        <h1 className={styles.title}>Adicionar Livro</h1>
         <form onSubmit={incluir}>
           <label htmlFor="titulo">Título:</label>
           <input
@@ -68,7 +65,6 @@ export default function LivroDados() {
             onChange={(e) => setTitulo(e.target.value)}
             required
           />
-
           <label htmlFor="resumo">Resumo:</label>
           <textarea
             id="resumo"
@@ -76,7 +72,6 @@ export default function LivroDados() {
             onChange={(e) => setResumo(e.target.value)}
             required
           ></textarea>
-
           <label htmlFor="autores">Autores:</label>
           <textarea
             id="autores"
@@ -84,7 +79,6 @@ export default function LivroDados() {
             onChange={(e) => setAutores(e.target.value)}
             required
           ></textarea>
-
           <label htmlFor="codEditora">Editora:</label>
           <select id="codEditora" onChange={tratarCombo} required>
             {opcoes.map((editora) => (
@@ -93,7 +87,6 @@ export default function LivroDados() {
               </option>
             ))}
           </select>
-
           <button type="submit">Incluir</button>
         </form>
       </main>

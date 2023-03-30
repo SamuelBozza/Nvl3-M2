@@ -56,7 +56,7 @@ const LivroLista = () => {
               <th>Título</th>
               <th>Autor(es)</th>
               <th>Editora</th>
-              <th>Ano</th>
+              <th>Resumo</th>
               <th>Excluir</th>
             </tr>
           </thead>

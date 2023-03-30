@@ -28,17 +28,18 @@ const LinhaLivro: React.FC<LinhaLivroProps> = ({ livro, excluir }) => {
       <td>{livro.codigo}</td>
       <td>{livro.titulo}</td>
       <td>
-        {nomeEditora ? nomeEditora : "Nenhuma Editora encontrada"}
-      </td>
-      <td>{livro.resumo}</td>
-      <td>
         <ul>
           {livro.autores &&
             livro.autores.map((autor, index) => <li key={index}>{autor}</li>)}
         </ul>
       </td>
+      <td>{nomeEditora ? nomeEditora : "Nenhuma Editora encontrada"}</td>
+      <td>{livro.resumo}</td>
       <td>
-        <button onClick={() => excluir(livro.codigo)} className="btn btn-danger">
+        <button
+          onClick={() => excluir(livro.codigo)}
+          className="btn btn-danger"
+        >
           Excluir
         </button>
       </td>
