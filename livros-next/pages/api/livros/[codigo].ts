@@ -1,12 +1,10 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { controleLivro } from ".";
+import { NextApiRequest, NextApiResponse } from 'next';
+import { controleLivro } from '.'
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
 
-    var cod = req.query;
-    var lista = controleLivro.excluir(Number(cod));
 
-    res.status(200).json(cod);
-
- }
-
+// eslint-disable-next-line import/no-anonymous-default-export
+export default  (requisicao: NextApiRequest, resposta: NextApiResponse) => {
+    const { codigo } = requisicao.query;
+    resposta.status(200).json(controleLivro.obterLivros());
+};
